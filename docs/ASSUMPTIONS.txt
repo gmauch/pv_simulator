@@ -1,10 +1,10 @@
 INTRODUCTION
-  This file lists and explains every the assumptions made during the development of the project.
+  This file lists and explains every assumption made during the development of the project.
 
 ASSUMPTIONS
 1) Regarding the Meter: As the idea for the meter is to simulate a home power consumption, I thought that generating a
 random value for instantaneous consumption would be unusual, since I ASSUMED it can not be erratic. For instance, if the
-generation was random, then in one second there could a consumption of 10 watts, then 800, then back to 10, then 700,
+generation was random, then in one second there could a consumption of 10 watts, in the next 800, then back to 10, then 700,
 which does not seem to me like a typical home consumption. Instead, I created a variable to store the last measured
 consumption and the next value is a randomic variation limited to 10% of the total. This way the variation between
 consecutive reads will be a slight increase or decrease in relation to the previously read value, which, IN MY ASSUMPTION,
@@ -12,14 +12,14 @@ is a better model for a home power consumption than just any possible value betw
 
 2) Regarding the photovoltaic (PV) simulator: The instructions for the challenge contains a graph of a typicail power
 profile to be replicated. Since I modeled the PV Simulator to read the power profile from a file, I had to create a file
-containing power generation values in indexed by the time of the day. I created a simple class (data_input_generator) to
+containing power generation values indexed by the time of the day. I created a simple class (data_input_generator) to
 help me build it. I ASSUMED that one power value was generated every minute (and not more frequent than that), and each
-power value reaing was limited to 4 decimal places. The file I generated using my data_input_generator class is in the
+power value reading was limited to 4 decimal places. The file I generated using my data_input_generator class is in the
 "input" folder and named "default.yaml".
 
 3) Regarding the RabbitMQ Broker: The application receives the host where the Broker is running, but it is unable to
 start or stop it. The application just connects to the broker.
   I used queues instead of topics, since the communication flow is 1:1, that is, 1 producer sending messages to one
-consumer. If the application is expected to  distributed, perhaps having multiple producers and consumers, topics should
+consumer. If the application is expected to be distributed, perhaps having multiple producers and consumers, topics should
 also be considered.
 

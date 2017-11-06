@@ -10,7 +10,8 @@ and consider it as the photovoltaic (PV) power value generated. In sequence, a l
 values, the sum of the powers and a timestamp will be generated and output to a file.
 
 HOW TO RUN
+  This program was developed and tested in Ubuntu 14.04.5 LTS and Python version 3.4.3.
   To run this program just execute the file run.sh in the root of the project. It will install all the libraries
 required to run (according to the file requirements.txt) and start the program with the default parameters.
   If you want to run the program with a different set of arguments just execute the program passing '--help' and a help
-will be shown.
+will be shown explaining how to do so.

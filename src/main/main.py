@@ -15,7 +15,7 @@ Class that defines, configures and reads user-supplied arguments.
 '''
 class arguments:
     def __init__(self):
-        self.parser = argparse.ArgumentParser(description='PV Simulator. This program generates a file')
+        self.parser = argparse.ArgumentParser(description='PV Simulator. This application solves the problem described in ./docs/PV Simulator Challenge.pdf')
 
     def check_positive(self, value):
         ivalue = int(value)
@@ -26,28 +26,28 @@ class arguments:
     def _configure_command_args(self):
         self.parser.add_argument('-b', '--broker_address',
                                  help='Address of the RabbitMQ Broker to be used to exchange messages.'
-                                      'Defaults to localhost',
+                                      ' Defaults to localhost.',
                                  type=str,
                                  default='localhost')
         self.parser.add_argument('-p', '--power_data_file',
                                  help='Path to a yaml file containing power data associated to time of day.'
-                                      'Defaults to ../input/default.yaml',
+                                      ' Defaults to ../input/default.yaml.',
                                  type=str,
                                  default='../input/default.yaml')
         self.parser.add_argument('-pi', '--producer_interval',
-                                 help='Interval in seconds between producer samples are generated. Defaults to 2',
+                                 help='Interval in seconds between producer samples are generated. Defaults to 2.',
                                  type=int,
                                  default=2)
         self.parser.add_argument('-i', '--initial_meter',
-                                 help='Initial value for meter consumption. Defaults to 0',
+                                 help='Initial value for meter consumption. Defaults to 0.',
                                  type=int,
                                  default=0)
         self.parser.add_argument('-m', '--max_meter',
-                                 help='Max value for meter consumption, Defaults to 900.',
+                                 help='Max value for meter consumption. Defaults to 900.',
                                  type=int,
                                  default=900)
         self.parser.add_argument('-o', '--output_path',
-                                 help='Path for output file generated during program execution. Defaults to output/results.out',
+                                 help='Path for output file generated during program execution. Defaults to output/results.out.',
                                  type=str,
                                  default='../output/results.out')
         self.parser.add_argument("-l", "--logging_path",
